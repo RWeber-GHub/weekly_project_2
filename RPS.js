@@ -1,3 +1,12 @@
+const rock = 1;
+const paper = 2;
+const scissors = 3;
+
+let tie = 0;
+let winner = 0;
+let comScore = 0;
+let playerScore = 0;
+
 function RNG(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
@@ -15,25 +24,56 @@ function comChoice() {
     }
 }
 
-function winnerCalc(){
-switch (gameOutput) {
-    case 'Rock':
-        winner = comPlayer - rpsSelector
+
+
+function runGame() {
+    const playerChoice = document.getElementById("rpsSelector").value
+
+            if (playerChoice === "Rock" && comPlayer === 'Rock') {
+            winner = 1
+            tie = tie + 1
+        } 
+            else if (playerChoice === "Rock" && comPlayer === 'Scissors') {
+                winner = 2
+                playerScore = playerScore + 1
+        } 
+            else if (playerChoice === "Rock" && comPlayer === 'Paper') {
+                winner = 3
+                comScore = comScore + 1
+        } 
+
+            else if (playerChoice === "Paper" && comPlayer === 'Paper') {
+                winner = 1
+                tie = tie + 1
+        }   
+            else if (playerChoice === "Paper" && comPlayer === 'Rock') {
+                winner = 2
+                playerScore = playerScore + 1
+        } 
+            else if (playerChoice === "Paper" && comPlayer === 'Scissors') {
+                winner = 3
+                comScore = comScore + 1
+        } 
         
-        break;
-    case 'Paper':
-        winner = comPlayer - rpsSelector
-
-        break;
-    case 'Scissors':
-        winner = comPlayer - rpsSelector
-
-        break;
-    default:
-        winner = comPlayer - rpsSelector
+            else if (playerChoice === "Scissors" && comPlayer === 'Scissors') {
+                winner = 1
+                tie = tie + 1
+        }
+            else if (playerChoice === "Scissors" && comPlayer === 'Paper') {
+                winner = 2
+                playerScore = playerScore + 1
+        } 
+            else if (playerChoice === "Scissors" && comPlayer === 'Rock') {
+                winner = 3
+                comScore = comScore + 1
+        }  
         
-        break;
-}
+    
+            else if (playerChoice === "End") {
+            console.log(`Game Over the final score was Player:${playerScore} - Computer:${comScore} - Ties:${tie} `)
+        } 
+   
+    
 
-return { randomProblem, answer };
+    document.getElementById("rpsSelector").selectedIndex = 0;
 }
