@@ -8,17 +8,15 @@
 </head>
 <body>
     <h1><strong>Welcome to Rock Paper Scissors!</strong></h1>
-        <select id="rpsSelector" onchange="runGame()">
 
-            <option value="">Select an option</option>
-            <option value="Rock">Rock</option>
-            <option value="Paper">Paper</option>
-            <option value="Scissors">Scissors</option>
-            <option value="End">End Game</option>
+    <div class="buttonContainer">
 
-        </select>
-        
+        <button value="Rock" class="rpsSelector" onclick ="runGame()">Rock</button>
+        <button value="Paper" class="rpsSelector" onclick ="runGame()">Paper</button>
+        <button value="Scissors" class="rpsSelector" onclick ="runGame()">Scissors</button>
+        <button value="Reset" class="rpsSelector" onclick = "resetGame()">Reset</button>
 
+    </div>
 
         <div class="choices">
                 <div class="text">Your Choice: <div id="yourChoice"></div></div>

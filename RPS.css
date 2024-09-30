@@ -11,12 +11,16 @@ h1{
     font-size: 30px;
     color: aquamarine;
 }
-#rpsSelector{
-    font-size: 20px;
-    display: flex;
-    text-align: center;
-    width: 50%;
+.buttonContainer{
+    width: 60%;
     height: 20%;
+    display: flex;
+}
+button{
+    padding: 10px;
+    font-size: 20px;
+    background-color: darkblue;
+    color:azure;
 }
 
 .choices{

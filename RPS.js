@@ -28,75 +28,47 @@ function comChoice() {
     }
 }
 
-
-
 function runGame() {
-    const playerChoice = document.getElementById("rpsSelector").value
+    const computerChoice = comChoice();
+
+    document.getElementById("yourChoice").innerHTML = playerChoice;
+    document.getElementById("comChoice").innerHTML = computerChoice;
        
-            if (playerChoice === "Rock" && comChoice === 'Rock') {
+            if (playerChoice === computerChoice) {
                 winner = 1;
-                tie = tie + 1;
-
-                document.getElementById("yourChoice").innerHTML = "Rock";
-                document.getElementById("comChoice").innerHTML = "Rock";
-        } 
-            else if (playerChoice === "Rock" && comChoice === 'Scissors') {
+                tie++; }
+         
+            else if (
+                (playerChoice === "Rock" && computerChoice === "Scissors") ||
+                (playerChoice === "Paper" && computerChoice === "Rock") ||
+                (playerChoice === "Scissors" && computerChoice === "Paper")
+            ) {
                 winner = 2;
-                playerScore = playerScore + 1;
-
-                document.getElementById("yourChoice").innerHTML = "Rock";
-                document.getElementById("comChoice").innerHTML = "Scissors";
-        } 
-            else if (playerChoice === "Rock" && comChoice === 'Paper') {
+            playerScore++; } 
+            
+            else {
                 winner = 3;
-                comScore = comScore + 1;
+                comScore++; }
+}
 
-                document.getElementById("yourChoice").innerHTML = "Rock";
-                document.getElementById("comChoice").innerHTML = "Paper";
-        } 
 
-            else if (playerChoice === "Paper" && comChoice === 'Paper') {
-                winner = 1;
-                tie = tie + 1;
-
-                document.getElementById("yourChoice").innerHTML = "Paper";
-                document.getElementById("comChoice").innerHTML = "Paper";
-        }   
-            else if (playerChoice === "Paper" && comChoice === 'Rock') {
-                winner = 2;
-                playerScore = playerScore + 1;
-
-                document.getElementById("yourChoice").innerHTML = "Paper";
-                document.getElementById("comChoice").innerHTML = "Rock";
-        } 
-            else if (playerChoice === "Paper" && comChoice === 'Scissors') {
-                winner = 3;
-                comScore = comScore + 1;
-                document.getElementById("yourChoice").innerHTML = "Paper";
-                document.getElementById("comChoice").innerHTML = "Scissors";
-        } 
-        
-            else if (playerChoice === "Scissors" && comChoice === 'Scissors') {
-                winner = 1;
-                tie = tie + 1;
-                document.getElementById("yourChoice").innerHTML = "Scissors";
-                document.getElementById("comChoice").innerHTML = "Scissors";
-        }
-            else if (playerChoice === "Scissors" && comChoice === 'Paper') {
-                winner = 2;
-                playerScore = playerScore + 1;
-                document.getElementById("yourChoice").innerHTML = "Scissors";
-                document.getElementById("comChoice").innerHTML = "Paper";
-        } 
-            else if (playerChoice === "Scissors" && comChoice === 'Rock') {
-                winner = 3;
-                comScore = comScore + 1;
-                document.getElementById("yourChoice").innerHTML = "Scissors";
-                document.getElementById("comChoice").innerHTML = "Rock";
-        }  
-        
+function resetGame() {
+    tie = 0;
+    winner = 0;
+    comScore = 0;
+    playerScore = 0;
     
-            else if (playerChoice === "End") {
-            console.log(`Game Over the final score was Player:${playerScore} - Computer:${comScore} - Ties:${tie} `)
-        } 
-    }
+    document.getElementById("yourChoice").innerHTML = '';
+    document.getElementById("comChoice").innerHTML = '';
+    document.getElementById("result").innerHTML = '';
+    document.getElementById("yourScore").innerHTML = playerScore;
+    document.getElementById("computerScore").innerHTML = comScore;
+    document.getElementById("ties").innerHTML = tie;
+}
+
+    document.querySelectorAll('.rpsSelector').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const playerChoice = event.target.value;
+            runGame(playerChoice);
+        });
+    });
