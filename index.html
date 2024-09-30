@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="RPS.css">
+</head>
+<body>
+        <select id="rpsSelector" onchange="runGame()">
+            <option value="">Select an option</option>
+            <option value="Rock">Rock</option>
+            <option value="Paper">Paper</option>
+            <option value="Scissors">Scissors</option>
+            <option value="End">End Game</option>
+        </select>
+        
+
+
+        <div class="choices">
+
+            
+                <div class="text">Your Choice: <div id="yourChoice"></div></div>
+            
+            
+            <div id="comChoice">
+                <div class="text">Computer Choice: </div>
+            </div>
+
+            <div id="result">
+                <div class="text">Result: </div>
+            </div>
+
+        </div>
+
+        <div class="scores">
+
+            <div id="yourScore">
+                <div class="text">Your Score: </div>
+            </div>
+            <div id="computerScore">
+                <div class="text">Computer Score: </div>
+            </div>
+            <div id="ties">
+                <div class="text">Number of Ties: </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+    <script src = "RPS.js"></script>
+</body>
+</html>
